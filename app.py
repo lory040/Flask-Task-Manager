@@ -9,7 +9,7 @@ db = SQLAlchemy(app)
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
-    when = db.Column(db.String(100), nullable=False)  # Aici salvăm timpul ales de tine
+    when = db.Column(db.String(100), nullable=False)  # salvare timp
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -38,4 +38,5 @@ def delete(id):
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
+
     app.run(debug=True)
